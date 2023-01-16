@@ -6,7 +6,7 @@ exports.runValidations = (req, res, next) => {
     const errors = validationResult(req);
     if(!errors.isEmpty()) {
         return res.status(codes.unprocessableEntity).json({
-            message: messages.validationError,
+            message: messages.signup.validation.error,
             error: errors.errors
         });
     }
