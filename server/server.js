@@ -28,7 +28,7 @@ if(NODE_ENV == 'development') {
 }
 
 // route middleware
-app.use('/api/signup', authRoutes);
+app.use('/api/auth', authRoutes);
 
 const port = PORT || 8000;
 app.listen(port, () => {
