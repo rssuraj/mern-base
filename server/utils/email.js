@@ -1,5 +1,6 @@
 const nodeMailer = require("nodemailer");
 const { messages } = require('../utils/messages');
+const { codes } = require('../utils/responseCodes');
 const { 
     EMAIL_HOST, 
     EMAIL_PORT, 
@@ -37,7 +38,7 @@ exports.sendSignupActivationEmail = (req, res, emailData) => {
     .sendMail(emailData)
     .then((info) => {
       console.log(`Signup Activation Email sent: ${info.response}`);
-      return res.json({
+      return res.status(codes.ok).json({
         message: messages.signup.activation.email.success,
       });
     })
